@@ -5,7 +5,8 @@ const url = 'http://localhost:3000/api/cameras';
 const Products = async () => {
   const products = await getAllCams(url);
   products.forEach((product) => {
-    renderProduct(product.name, product._id, product.imageUrl, product.price);
+    renderProducts(product.name, product._id, product.imageUrl, product.price, product.description);
+    console.log(products);
   });
 };
 // Récupère toutes les caméras
@@ -15,17 +16,18 @@ const getAllCams = async (url) => {
 };
 
 // Fourni l'affichage d'un produit
-function renderProduct(productName, productId, productImg, productPrice) {
-
+function renderProducts(productName, productId, productImg, productPrice, productDescription) {
   // Récupère la div qui contiendra les différents articles
-  const products = document.querySelector('#cameras');
+  const products = document.getElementById('cameras');
   const article = document.createElement('article');
-  article.innerHTML = `<img alt="${productName}" src="${productImg}">
+  article.innerHTML = `<a href="product.html?id=${productId}">
+  <img alt="${productName}" src="${productImg}"></a>
     <button class="product-link" type="button"><a href="product.html?id=${productId}">${productName} - ${
     productPrice / 1000
-    }€</a></button>`;
-  
-  products.appendChild(article);
+  }€<p class="description">${productDescription}</p></button></a>
+    `;
+
+  products.append(article);
 }
 
 Products();

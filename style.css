@@ -5,21 +5,23 @@
 .navbar.navbar-expand-lg.navbar.navbar-dark.bg-dark {
   display: flex;
   justify-content: space-between;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 #cameras {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  position: relative;
-  border-radius: 1.25rem;
   transition-duration: 0.1s;
   margin: 1rem;
 }
 
 article {
   width: 45%;
+}
+
+article:hover {
+  transform: rotate(-15deg);
 }
 
 img {
@@ -39,10 +41,11 @@ img {
 .product-link:hover > a:hover {
   color: red;
   text-decoration: none;
-
+  background-color: black;
 }
 
 .product-link {
+  border-radius: 0px 0px 40px 40px;
   width: 80%;
 }
 
@@ -50,10 +53,17 @@ img {
   text-align: center;
 }
 
+.description {
+  text-decoration: none;
+  color: initial;
+  font-weight: initial;
+}
+
+/*********** FOOTER ***********/
 .footer-dark {
   padding: 50px 0;
   color: #f0f9ff;
-  background-color: #282d32;
+  background-color: #343a40;
 }
 
 .footer-dark h3 {
