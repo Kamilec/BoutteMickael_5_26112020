@@ -8,24 +8,35 @@
   font-size: 1.3rem;
 }
 
-#cameras {
+#cameras,
+#oneCamera {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-around;
   transition-duration: 0.1s;
   margin: 1rem;
 }
 
-article {
-  width: 45%;
+.product-name {
+  white-space: pre;
 }
 
-article:hover {
-  transform: rotate(-15deg);
+.product-information {
+  position: relative;
+  left: 75%;
+}
+
+.product-info {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+article {
+  width: 40%;
 }
 
 img {
-  width: 80%;
   object-fit: cover;
   max-width: 100%;
   margin-top: 20px;
@@ -39,24 +50,31 @@ img {
 }
 
 .product-link:hover > a:hover {
-  color: red;
   text-decoration: none;
-  background-color: black;
+  color: initial;
 }
 
 .product-link {
   border-radius: 0px 0px 40px 40px;
-  width: 80%;
-}
-
-.product-price {
-  text-align: center;
 }
 
 .description {
+  margin-top: 40px;
+}
+
+.info {
   text-decoration: none;
   color: initial;
   font-weight: initial;
+}
+
+label {
+  margin-right: 5px;
+}
+
+.list {
+  position: relative;
+  left: 4rem;
 }
 
 /*********** FOOTER ***********/
