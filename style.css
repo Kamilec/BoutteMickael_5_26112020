@@ -68,13 +68,8 @@ img {
   font-weight: initial;
 }
 
-label {
-  margin-right: 5px;
-}
-
-.list {
-  position: relative;
-  left: 4rem;
+.product-lenses {
+  font-size: 1.1rem;
 }
 
 /*********** FOOTER ***********/

@@ -1,5 +1,6 @@
 // URL de l'api
 const url = 'http://localhost:3000/api/cameras/';
+
 // Recupere les paramètres de l'url
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
@@ -8,19 +9,38 @@ const article = document.getElementById('oneCamera');
 
 // Affiche le produit
 const oneCamera = async () => {
-  const data = await getOneCams(url, id);
-  renderCams(data, article);
+  const data = await getOneCam(url, id);
+  renderCam(data, article);
   addToCart(article, data);
 };
 
 // Récupère une caméra
-const getOneCams = async (productUrl, productId) => {
+const getOneCam = async (productUrl, productId) => {
   const response = await fetch(productUrl + productId);
   return await response.json();
 };
 
-// Affichage selon les données du produit
-const renderCams = (productData) => {
+// Personnalise le produit
+const renderCam = (productData) => {
+  const selector = document.createElement('select');
+  productData.lenses.forEach((element) => {
+    // Crée une balise option pour chaque lentille
+    const option = document.createElement('option');
+    option.innerHTML = element;
+    selector.appendChild(option);
+  });
+
+  // Ajoute le produit au panier
+  const addToCart = (parentElt, productData) => {
+    // Crée le bouton d'envoie du produit
+    const btn = document.createElement("button");
+    const div = document.createElement("div");
+    btn.textContent = "Ajouter au panier";
+    div.classList.add("add-to-cart");
+    parentElt.appendChild(div);
+    parentElt.appendChild(btn);
+  }
+
   article.innerHTML = `
     <div class="product-information">
         <img src="${productData.imageUrl}" alt="${productData.name}">
@@ -29,14 +49,15 @@ const renderCams = (productData) => {
             <h2 class="product-name">${productData.name} </h2>
             <p class="product-price">${productData.price / 100}€</p> 
         </div>
-        <div class="product-lenses">
-        <select><option>${productData.lenses}</option></select>
-        </div>
+        <div class="product-lenses">${selector.outerHTML}</div>
+        
             <div class="info">
             <p class="description">${productData.description}</p>
-            </div>
+        </div>
         </button>
     </div>`;
 };
 
-oneCamera();
+
+
+  oneCamera();
