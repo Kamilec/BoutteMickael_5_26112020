@@ -12,7 +12,6 @@ const Products = async () => {
       product.price,
       product.description
     );
-    console.log(products);
   });
 };
 

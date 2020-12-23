@@ -24,22 +24,10 @@ const getOneCam = async (productUrl, productId) => {
 const renderCam = (productData) => {
   const selector = document.createElement('select');
   productData.lenses.forEach((element) => {
-    // Crée une balise option pour chaque lentille
-    const option = document.createElement('option');
+    const option = document.createElement('option'); // Crée une balise option pour chaque lentille
     option.innerHTML = element;
     selector.appendChild(option);
   });
-
-  // Ajoute le produit au panier
-  const addToCart = (parentElt, productData) => {
-    // Crée le bouton d'envoie du produit
-    const btn = document.createElement("button");
-    const div = document.createElement("div");
-    btn.textContent = "Ajouter au panier";
-    div.classList.add("add-to-cart");
-    parentElt.appendChild(div);
-    parentElt.appendChild(btn);
-  }
 
   article.innerHTML = `
     <div class="product-information">
@@ -51,13 +39,39 @@ const renderCam = (productData) => {
         </div>
         <div class="product-lenses">${selector.outerHTML}</div>
         
-            <div class="info">
-            <p class="description">${productData.description}</p>
+        <div class="info"> 
+            <p class="description">${productData.description}</p> 
         </div>
         </button>
     </div>`;
 };
 
+// Ajoute le produit au panier
+const addToCart = (parentElt, productData) => {
+  // Crée le bouton d'envoie du produit
+  const btn = document.createElement("button");
+  const div = document.createElement("div");
+  
+  btn.textContent = "Add me to cart";
+  div.classList.add("add-to-cart");
+  parentElt.appendChild(div);
+  parentElt.appendChild(btn);
 
+  // Assigne valeur à envoyer à localStorage
+  const product = [
+    productData._id,
+    productData.name,
+    productData.price,
+    productData.imageUrl,
+  ];
+
+  // Envoie valeur à localStorage après un clique
+  btn.addEventListener("click", () => {
+    localStorage.setItem(productData.name, JSON.stringify(product));
+    btn.classList.add("invisible");
+    div.textContent = "Add succefully";
+  });
+}
 
   oneCamera();
+

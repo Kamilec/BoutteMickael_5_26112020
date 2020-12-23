@@ -18,13 +18,31 @@
   margin: 1rem;
 }
 
-.product-name {
-  white-space: pre;
-}
-
 .product-information {
   position: relative;
   left: 75%;
+}
+
+.btn,
+.add-to-cart {
+  position: relative;
+  left: 55%;
+  bottom: 100px;
+}
+
+button {
+  font-weight: bolder;
+  color: red;
+  position: relative;
+  left: 55%;
+  bottom: 100px;
+}
+
+.add-to-cart {
+  color: red;
+  font-weight: bolder;
+  position: relative;
+  left: 100%;
 }
 
 .product-info {
@@ -55,6 +73,9 @@ img {
 }
 
 .product-link {
+  font-weight: initial;
+  color: initial;
+  position: initial;
   border-radius: 0px 0px 40px 40px;
 }
 
