@@ -24,7 +24,9 @@ const getOneCam = async (productUrl, productId) => {
 const renderCam = (productData) => {
   const selector = document.createElement('select');
   productData.lenses.forEach((element) => {
-    const option = document.createElement('option'); // Crée une balise option pour chaque lentille
+    // Crée une balise option pour chaque lentille
+    const option = document.createElement('option');
+    option.textContent = ' Choice a lenses';
     option.innerHTML = element;
     selector.appendChild(option);
   });
@@ -47,15 +49,14 @@ const renderCam = (productData) => {
 };
 
 // Ajoute le produit au panier
-const addToCart = (parentElt, productData) => {
+const addToCart = (basket, productData) => {
   // Crée le bouton d'envoie du produit
   const btn = document.createElement("button");
   const div = document.createElement("div");
-  
-  btn.textContent = "Add me to cart";
+  btn.textContent = "Ajouter au panier";
   div.classList.add("add-to-cart");
-  parentElt.appendChild(div);
-  parentElt.appendChild(btn);
+  basket.appendChild(div);
+  basket.appendChild(btn);
 
   // Assigne valeur à envoyer à localStorage
   const product = [
@@ -64,14 +65,12 @@ const addToCart = (parentElt, productData) => {
     productData.price,
     productData.imageUrl,
   ];
-
   // Envoie valeur à localStorage après un clique
   btn.addEventListener("click", () => {
     localStorage.setItem(productData.name, JSON.stringify(product));
     btn.classList.add("invisible");
-    div.textContent = "Add succefully";
+    div.textContent = "Le produit a été ajouté au panier !";
   });
-}
+};
 
-  oneCamera();
-
+oneCamera();

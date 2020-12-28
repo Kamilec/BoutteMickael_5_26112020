@@ -8,8 +8,15 @@
   font-size: 1.3rem;
 }
 
+h2 {
+  text-align: center;
+}
+
 #cameras,
-#oneCamera {
+#oneCamera,
+.container,
+input,
+article {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -18,31 +25,27 @@
   margin: 1rem;
 }
 
+#cart {
+  margin: 1rem;
+  text-align: center;
+}
+
 .product-information {
   position: relative;
   left: 75%;
 }
 
-.btn,
-.add-to-cart {
-  position: relative;
-  left: 55%;
-  bottom: 100px;
-}
-
 button {
   font-weight: bolder;
-  color: red;
   position: relative;
-  left: 55%;
-  bottom: 100px;
+  left: 75%;
+  width: 100%;
 }
 
 .add-to-cart {
-  color: red;
   font-weight: bolder;
   position: relative;
-  left: 100%;
+  left: 75%;
 }
 
 .product-info {
@@ -76,11 +79,10 @@ img {
   font-weight: initial;
   color: initial;
   position: initial;
-  border-radius: 0px 0px 40px 40px;
 }
 
 .description {
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .info {

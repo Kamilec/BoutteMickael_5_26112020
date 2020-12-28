@@ -38,11 +38,10 @@
                 <a class="navbar-brand" href="index.html"><span><i class="fas fa-camera-retro"></i></span> ORINOCO</a>
                 <div class="navbar_icons">
                     <ul class="navbar-nav nav mr-auto">
-                        </li>
                         <li class="nav-item ">
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="">
                                 <i class="fa fa-user" aria-hidden="true"></i></a>
                         </li>
                         <a class="nav-link" href="cart.html">
@@ -57,11 +56,37 @@
     </header>
     <!-- Header -->
 
-    <!-- Main -->
     <main>
-        <article id="oneCamera"></article>
+        <h2>Votre panier</h2>
+        <section id="cart">
+            <h3 id="cart-total"></h3>
+        </section>
+        <div class="container">
+            <form>
+                <label for="firstName">Prénom : </label>
+                <input type="text" id="firstName" name="firstName" />
+                <p id="firstNameErrorMessage" class="form-error"></p>
+
+                <label for="lastName">Nom : </label>
+                <input type="text" id="lastName" name="lastName" />
+                <p id="lastNameErrorMessage" class="form-error"></p>
+
+                <label for="address">Adresse : </label>
+                <input type="text" id="address" name="address" />
+                <p id="addressErrorMessage" class="form-error"></p>
+
+                <label for="city">Ville : </label>
+                <input type="text" id="city" name="city" />
+                <p id="cityErrorMessage" class="form-error"></p>
+
+                <label for="email">Email : </label>
+                <input type="email" id="email" name="email" />
+                <p id="emailErrorMessage" class="form-error"></p>
+
+                <input type="submit" id="btn" value="Confirmer votre achat" />
+            </form>
+        </div>
     </main>
-    <!-- Main -->
 
     <!-- Footer -->
     <div class="footer-dark">
@@ -91,8 +116,8 @@
     </div>
     <!-- Footer -->
 
-    <!-- BOOTSTRAP JS -->
-    <script src="product.js"></script>
+    <!-- Script JS -->
+    <script src="cart.js"></script>
 </body>
 
 </html>
