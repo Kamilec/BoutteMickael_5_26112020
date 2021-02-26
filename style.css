@@ -12,10 +12,13 @@ h2 {
   text-align: center;
 }
 
+.product-name {
+  font-size: 15px;
+}
+
 #cameras,
 #oneCamera,
 .container,
-input,
 article {
   display: flex;
   flex-wrap: wrap;
@@ -25,9 +28,12 @@ article {
   margin: 1rem;
 }
 
-#cart {
-  margin: 1rem;
+#basket {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 60%;
 }
 
 .product-information {
@@ -35,17 +41,11 @@ article {
   left: 75%;
 }
 
-button {
+.add {
   font-weight: bolder;
   position: relative;
   left: 75%;
   width: 100%;
-}
-
-.add-to-cart {
-  font-weight: bolder;
-  position: relative;
-  left: 75%;
 }
 
 .product-info {
@@ -91,8 +91,47 @@ img {
   font-weight: initial;
 }
 
+.price-total {
+  font-size: 25px;
+  color: red;
+  font-weight: 600;
+}
+
+#total-price {
+  text-align: center;
+  font-size: 25px;
+  border-radius: 10px;
+  border: 3px solid;
+  font-weight: 700;
+  margin: 20px;
+}
+
 .product-lenses {
   font-size: 1.1rem;
+}
+
+.quantity,
+.price-total {
+  display: initial;
+  text-align: center;
+  width: 50px;
+  height: 25px;
+}
+
+.confirmation {
+  border: 3px double;
+  width: 100%;
+}
+
+#formulaire {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#confirmation {
+  display: contents;
+  text-align: center;
 }
 
 /*********** FOOTER ***********/

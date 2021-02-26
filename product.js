@@ -11,7 +11,7 @@ const article = document.getElementById('oneCamera');
 const oneCamera = async () => {
   const data = await getOneCam(url, id);
   renderCam(data, article);
-  addToCart(article, data);
+  addToBasket(article, data);
 };
 
 // Récupère une caméra
@@ -48,29 +48,45 @@ const renderCam = (productData) => {
     </div>`;
 };
 
+const upDateQte = () => {
+  let qte = localStorage.length;
+  document.getElementById('shop').innerHTML = qte;
+};
+
 // Ajoute le produit au panier
-const addToCart = (basket, productData) => {
+const addToBasket = (basket, productData) => {
   // Crée le bouton d'envoie du produit
-  const btn = document.createElement("button");
-  const div = document.createElement("div");
-  btn.textContent = "Ajouter au panier";
-  div.classList.add("add-to-cart");
+  const btn = document.createElement('button');
+  const div = document.createElement('div');
+  btn.textContent = 'Ajouter au panier';
+  div.classList.add('add-to-basket');
+  btn.classList.add('add');
   basket.appendChild(div);
   basket.appendChild(btn);
 
   // Assigne valeur à envoyer à localStorage
-  const product = [
-    productData._id,
-    productData.name,
-    productData.price,
-    productData.imageUrl,
-  ];
+  const product = {
+    id: productData._id,
+    name: productData.name,
+    price: productData.price,
+    imageUrl: productData.imageUrl,
+    qte: 1,
+  };
+  
   // Envoie valeur à localStorage après un clique
-  btn.addEventListener("click", () => {
-    localStorage.setItem(productData.name, JSON.stringify(product));
-    btn.classList.add("invisible");
-    div.textContent = "Le produit a été ajouté au panier !";
+  btn.addEventListener('click', () => {
+    let verifItem = localStorage.getItem(productData.name);
+    if (verifItem != null) {
+      verifItem = JSON.parse(verifItem);
+      verifItem.qte++;
+      localStorage.setItem(productData.name, JSON.stringify(verifItem));
+    } else {
+      localStorage.setItem(productData.name, JSON.stringify(product));
+    }
+    upDateQte();
   });
 };
+
+upDateQte();
 
 oneCamera();

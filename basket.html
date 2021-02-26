@@ -23,7 +23,6 @@
     <meta property="og:locale" content="fr_FR" />
 
     <!-- BOOTSTRAP CSS -->
-    <link rel="stylesheet" href="bootstrap-4.5.3-dist/js/bootstrap.js">
     <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
 
     <title>Orinoco</title>
@@ -41,12 +40,12 @@
                         <li class="nav-item ">
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="confirmation.html">
                                 <i class="fa fa-user" aria-hidden="true"></i></a>
                         </li>
-                        <a class="nav-link" href="cart.html">
+                        <a class="nav-link" href="basket.html">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <span class="shop-icon_counter" id="shop-counter-1"></span>
+                            <span class="shop-icon_counter" id="shop">0</span>
                         </a>
                     </ul>
                 </div>
@@ -58,33 +57,40 @@
 
     <main>
         <h2>Votre panier</h2>
-        <section id="cart">
-            <h3 id="cart-total"></h3>
+        <section id="basket">
+            <h3 id="basket-total"></h3>
         </section>
+
+        <div id="total-price"></div>
+
         <div class="container">
-            <form>
-                <label for="firstName">Prénom : </label>
-                <input type="text" id="firstName" name="firstName" />
-                <p id="firstNameErrorMessage" class="form-error"></p>
+            <fieldset class="confirmation">
+                <legend> Bon de commmande </legend>
+                <form id="formulaire">
+                    <p><label for="firstName">Nom <span class="obligatoire">* : 
+                        <input type="text" required="required" id="firstName" name="firstName" /></span></label></p>
+                        <span id="missFirstName"></span><br>
 
-                <label for="lastName">Nom : </label>
-                <input type="text" id="lastName" name="lastName" />
-                <p id="lastNameErrorMessage" class="form-error"></p>
+                    <p><label for="lastName">Prénom <span class="obligatoire">* : 
+                        <input type="text" required="required" id="lastName" name="lastName" /></span></label></p>
+                        <span id="missLastName"></span><br>
 
-                <label for="address">Adresse : </label>
-                <input type="text" id="address" name="address" />
-                <p id="addressErrorMessage" class="form-error"></p>
+                    <p><label for="address">Adresse <span class="obligatoire">* : 
+                        <input type="text" required="required" id="address" name="address" /></span> </label></p>
+                        <span id="missAddress"></span><br>
 
-                <label for="city">Ville : </label>
-                <input type="text" id="city" name="city" />
-                <p id="cityErrorMessage" class="form-error"></p>
+                    <p><label for="city">Ville <span class="obligatoire">* : 
+                        <input type="text" required="required"id="city" name="city" /></span></label></p>
+                        <span id="missCity"></span><br>
 
-                <label for="email">Email : </label>
-                <input type="email" id="email" name="email" />
-                <p id="emailErrorMessage" class="form-error"></p>
+                    <p><label for="email">Email <span class="obligatoire">* : 
+                        <input type="email" required="required" id="email" name="email" /></span></label></p>
+                        <span id="missEmail"></span><br>
 
-                <input type="submit" id="btn" value="Confirmer votre achat" />
+                    <input type="submit" id="btn" value="Confirmez votre achat" />
+            </fieldset>
             </form>
+
         </div>
     </main>
 
@@ -117,7 +123,12 @@
     <!-- Footer -->
 
     <!-- Script JS -->
-    <script src="cart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
+    <script src="basket.js"></script>
+    <script src="totalBasket.js"></script>
 </body>
 
 </html>

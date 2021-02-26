@@ -10,8 +10,8 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
 
     <!-- OpenGraph -->
@@ -23,7 +23,6 @@
     <meta property="og:locale" content="fr_FR" />
 
     <!-- BOOTSTRAP CSS -->
-    <link rel="stylesheet" href="bootstrap-4.5.3-dist/js/bootstrap.js">
     <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
 
     <title>Orinoco</title>
@@ -39,14 +38,12 @@
                 <div class="navbar_icons">
                     <ul class="navbar-nav nav mr-auto">
                         <li class="nav-item ">
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="confirmation.html">
                                 <i class="fa fa-user" aria-hidden="true"></i></a>
                         </li>
-                        <a class="nav-link" href="cart.html">
+                        <a class="nav-link" href="basket.html">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <span class="shop-icon_counter" id="shop-counter-1"></span>
+                            <span class="shop-icon_counter" id="shop">0</span>
                         </a>
                     </ul>
                 </div>
@@ -91,7 +88,12 @@
     <!-- Footer -->
 
     <!-- Script JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
     <script src="index.js"></script>
+    <script src="totalBasket.js"></script>
 </body>
 
 </html>
