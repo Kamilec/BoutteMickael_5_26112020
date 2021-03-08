@@ -27,15 +27,15 @@ function renderProducts(
   productId,
   productImg,
   productPrice,
-  productDescription
 ) {
   const products = document.getElementById('cameras');
   const article = document.createElement('article'); // Récupère la div qui contiendra les différents articles
-  article.innerHTML = `<a href="product.html?id=${productId}">
-  <img alt="${productName}" src="${productImg}"></a>
-    <button class="product-link" type="button"><a href="product.html?id=${productId}">${productName} - ${
-    productPrice / 100
-  }€<p class="info">${productDescription}</p></button></a>
+  article.classList.add('product-general')
+  article.innerHTML = `
+  <img alt="${productName}" src="${productImg}">
+    <div class="product-list"><p class="product-name">${productName}</p> 
+    <p class="product-price">${productPrice / 100}€</p>
+    <a href="product.html?id=${productId}" class="find-out-more">En savoir plus</a></div>
     `;
 
   products.append(article);

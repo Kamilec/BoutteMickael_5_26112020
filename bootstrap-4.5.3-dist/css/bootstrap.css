@@ -48,7 +48,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
@@ -273,7 +273,7 @@ button:not(:disabled),
 [type="reset"]:not(:disabled),
 [type="submit"]:not(:disabled) {
   cursor: pointer;
-  margin: 5px;
+  margin-bottom: 5px;
 }
 
 button::-moz-focus-inner,
@@ -365,10 +365,6 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 2rem;
-}
-
-h3, .h3 {
-  font-size: 1.75rem;
 }
 
 h4, .h4 {

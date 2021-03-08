@@ -34,21 +34,17 @@ const renderCam = (productData) => {
   article.innerHTML = `
     <div class="product-information">
         <img src="${productData.imageUrl}" alt="${productData.name}">
-        <button class="product-link">
         <div class="product-info">
-            <h2 class="product-name">${productData.name} </h2>
-            <p class="product-price">${productData.price / 100}€</p> 
+            <h2 class="name-price">${productData.name} - ${productData.price / 100}€</h2>
         </div>
         <div class="product-lenses">${selector.outerHTML}</div>
-        
         <div class="info"> 
             <p class="description">${productData.description}</p> 
         </div>
-        </button>
     </div>`;
 };
 
-const upDateQte = () => {
+function upDateQte () {
   let qte = localStorage.length;
   document.getElementById('shop').innerHTML = qte;
 };
@@ -86,7 +82,4 @@ const addToBasket = (basket, productData) => {
     upDateQte();
   });
 };
-
-upDateQte();
-
 oneCamera();

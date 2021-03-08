@@ -25,7 +25,7 @@
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
 
-    <title>Orinoco</title>
+    <title>Orinocams</title>
 
 </head>
 
@@ -34,29 +34,27 @@
     <header>
         <div class="header_navbar">
             <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-                <a class="navbar-brand" href="index.html"><span><i class="fas fa-camera-retro"></i></span> ORINOCO</a>
+                <a class="navbar-brand" href="index.html"><span><i class="fas fa-camera-retro"></i></span> ORINOCAMS</a>
                 <div class="navbar_icons">
                     <ul class="navbar-nav nav mr-auto">
                         <li class="nav-item ">
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="confirmation.html">
-                                <i class="fa fa-user" aria-hidden="true"></i></a>
+                            <a class="nav-link" href="index.html">
+                                <i class="fas fa-arrow-alt-circle-left"></i>
                         </li>
                         <a class="nav-link" href="basket.html">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <span class="shop-icon_counter" id="shop">0</span>
+                            <i class="fas fa-shopping-basket"></i>
+                            (<span class="shop-icon_counter" id="shop"></span>)
                         </a>
                     </ul>
                 </div>
-        </div>
-        </nav>
+            </nav>
         </div>
     </header>
     <!-- Header -->
 
     <main>
-        <h2>Votre panier</h2>
         <section id="basket">
             <h3 id="basket-total"></h3>
         </section>
@@ -67,27 +65,30 @@
             <fieldset class="confirmation">
                 <legend> Bon de commmande </legend>
                 <form id="formulaire">
-                    <p><label for="firstName">Nom <span class="obligatoire">* : 
-                        <input type="text" required="required" id="firstName" name="firstName" /></span></label></p>
-                        <span id="missFirstName"></span><br>
+                    <p><label for="firstName">Nom <span class="obligatoire">* :
+                                <input type="text" required="required" id="firstName" name="firstName" placeholder="Nom" /></span></label>
+                    </p>
+                    <span id="missFirstName"></span><br>
 
-                    <p><label for="lastName">Prénom <span class="obligatoire">* : 
-                        <input type="text" required="required" id="lastName" name="lastName" /></span></label></p>
-                        <span id="missLastName"></span><br>
+                    <p><label for="lastName">Prénom <span class="obligatoire">* :
+                                <input type="text" required="required" id="lastName" name="lastName"  placeholder="Prénom" /></span></label>
+                    </p>
+                    <span id="missLastName"></span><br>
 
-                    <p><label for="address">Adresse <span class="obligatoire">* : 
-                        <input type="text" required="required" id="address" name="address" /></span> </label></p>
-                        <span id="missAddress"></span><br>
+                    <p><label for="address">Adresse <span class="obligatoire">* :
+                                <input type="text" required="required" id="address" name="address"  placeholder="ex : 31 rue du cerisier"/></span> </label>
+                    </p>
+                    <span id="missAddress"></span><br>
 
-                    <p><label for="city">Ville <span class="obligatoire">* : 
-                        <input type="text" required="required"id="city" name="city" /></span></label></p>
-                        <span id="missCity"></span><br>
+                    <p><label for="city">Ville <span class="obligatoire">* :
+                                <input type="text" required="required" id="city" name="city"  placeholder="ex : Lyon" /></span></label></p>
+                    <span id="missCity"></span><br>
 
-                    <p><label for="email">Email <span class="obligatoire">* : 
-                        <input type="email" required="required" id="email" name="email" /></span></label></p>
-                        <span id="missEmail"></span><br>
+                    <p><label for="email">Email <span class="obligatoire">* :
+                                <input type="email" required="required" id="email" name="email"  placeholder="xxx@mail.fr"/></span></label></p>
+                    <span id="missEmail"></span><br>
 
-                    <input type="submit" id="btn" value="Confirmez votre achat" />
+                    <input type="submit" id="btn" value="Confirmation" />
             </fieldset>
             </form>
 
