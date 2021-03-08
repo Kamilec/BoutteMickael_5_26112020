@@ -35,7 +35,7 @@ function renderProducts(
   <img alt="${productName}" src="${productImg}">
     <div class="product-list"><p class="product-name">${productName}</p> 
     <p class="product-price">${productPrice / 100}€</p>
-    <a href="product.html?id=${productId}" class="find-out-more">En savoir plus</a></div>
+    <a href="/HTML/product.html?id=${productId}" class="find-out-more">En savoir plus</a></div>
     `;
 
   products.append(article);

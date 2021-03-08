@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="confirmation" content="Confirmation de votre commande" />
-    <meta name="robots" content="index">
+    <meta name="robots" content="confirmation">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous" />
@@ -23,7 +23,7 @@
     <meta property="og:locale" content="fr_FR" />
 
     <!-- BOOTSTRAP CSS -->
-    <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap-4.5.3-dist/css/bootstrap.css">
 
     <title>Orinocams</title>
 
@@ -41,7 +41,7 @@
                             <a class="nav-link" href="index.html">
                                 <i class="fas fa-arrow-alt-circle-left"></i>
                         </li>
-                        <a class="nav-link" href="basket.html">
+                        <a class="nav-link" href="/HTML/basket.html">
                             <i class="fas fa-shopping-basket"></i>
                             (<span class="shop-icon_counter" id="shop"></span>)
                         </a>
@@ -64,7 +64,7 @@
             <p class="order-id">Commande n° <span class="order-id-value"></span></p>
             <br />
             <p class="total-price">
-                Récapitulatif de votre commande : <span class="price-final"></span>€</p>
+                Récapitulatif de votre commande : <span id="price-final"></span>€</p>
         </article>
     </main>
     <!-- Main -->
@@ -102,7 +102,8 @@
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
-    <script src="confirmation.js"></script>
+    <script src="/JS/confirmation.js"></script>
+    <script src="/JS/totalBasket.js"></script>
 </body>
 
 </html>

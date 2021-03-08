@@ -1,4 +1,4 @@
-const cartTotal = document.getElementById('basket-total'); //Récupère le h3 pour le prix total
+const cartTotal = document.getElementById('total-price'); //Récupère le h3 pour le prix total
 const form = document.querySelector('form'); // Récupère le formulaire
 const parentsection = document.getElementById('basket');
 let arrayProducts = [];
@@ -177,6 +177,6 @@ function sendOrder() {
         localStorage.removeItem(key);
       }
       localStorage.setItem('orderId', data.orderId);
-      document.location.href = '/confirmation.html';
+      document.location.href = '/HTML/confirmation.html';
     });
 }
