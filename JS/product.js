@@ -14,6 +14,7 @@ const oneCamera = async () => {
   addToBasket(article, data);
 };
 
+
 // Récupère une caméra
 const getOneCam = async (productUrl, productId) => {
   const response = await fetch(productUrl + productId);

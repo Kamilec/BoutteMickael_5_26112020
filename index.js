@@ -1,8 +1,9 @@
 // URL de l'api
 const url = 'http://localhost:3000/api/cameras';
 
+
 // Affiche tous les produits
-const Products = async () => {
+const products = async () => {
   const products = await getAllCams(url);
   products.forEach((product) => {
     renderProducts(
@@ -10,7 +11,7 @@ const Products = async () => {
       product._id,
       product.imageUrl,
       product.price,
-      product.description
+      product.description,
     );
   });
 };
@@ -35,12 +36,11 @@ function renderProducts(
   <img alt="${productName}" src="${productImg}">
     <div class="product-list"><p class="product-name">${productName}</p> 
     <p class="product-price">${productPrice / 100}€</p>
-    <a href="/HTML/product.html?id=${productId}" class="find-out-more">En savoir plus</a></div>
+    <a href="/HTML/product.html?id=${productId}" class="find-out-more">Développez-moi</a></div>
     `;
 
   products.append(article);
 }
-
-Products();
+products();
 
 

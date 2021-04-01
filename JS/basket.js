@@ -5,20 +5,27 @@ let arrayProducts = [];
 
 for (let i = 0; i < localStorage.length; i++) {
   const key = localStorage.key(i);
-  if (key === 'orderId' || key === 'cartTotal') {
+  if (key === 'orderId' || key === '') {
     continue;
   }
-
   let product = JSON.parse(localStorage.getItem(key));
   let article = document.createElement('article');
   arrayProducts.push(product.id);
- 
+  
   article.innerHTML = `
     <div class="product-information product-row">
             <img src="${product.imageUrl}">
-            <h3 class="product-name" >${product.name} (${product.price / 100}€) </h3>
-            <input id="${product.price}" type="number" class="quantity" name="quatity" value=${product.qte}>
-            <p id="${product.price + product.name}" class="price-total">${(product.price / 100) * product.qte}</p>
+            <h3 class="product-name" >${product.name} (${
+    product.price / 100
+  }€) </h3>
+            <input id="${
+              product.price
+            }" type="number" class="quantity" name="quatity" value=${
+    product.qte
+  }>
+            <p id="${product.price + product.name}" class="price-total">${
+    (product.price / 100) * product.qte
+  }</p>
        <button id="${product.name}">Supprimer</button>
     </div>`;
 
@@ -48,9 +55,12 @@ let totalPrice = () => {
   for (let element of allPrice) {
     price += parseInt(element.innerHTML);
   }
+  localStorage.setItem('finalPrice', price + '€');
   document.getElementById('total-price').innerHTML = price + '€';
 };
 totalPrice();
+
+
 
 let btnConfirm = document.getElementById('btn');
 let firstName = document.getElementById('firstName');
@@ -84,53 +94,58 @@ btnConfirm.addEventListener('click', function (e) {
 function f_valide() {
   let error = false;
   if (firstName.validity.valueMissing) {
-    missFirstName.textContent = 'Veuillez renseigner votre nom';
-    missFirstName.style.color = 'red';
+    missFirstName.textContent = 'Veuillez renseigner votre prénom';
+    missFirstName.style.color = '#f0a30a';
+    missFirstName.style.fontWeight = 'bolder';
     error = true;
   } else if (firstNameV.test(firstName.value) == false) {
     missFirstName.textContent = 'Format incorrect';
-    missFirstName.style.color = 'orange';
-    missFirstName.style.fontWeight = 'bold';
+    missFirstName.style.color = 'red';
+    missFirstName.style.fontWeight = 'bolder';
     error = true;
   }
   if (lastName.validity.valueMissing) {
-    missLastName.textContent = 'Veuillez renseigner votre prénom';
-    missLastName.style.color = 'red';
+    missLastName.textContent = 'Veuillez renseigner votre nom';
+    missLastName.style.color = '#f0a30a';
+    missLastName.style.fontWeight = 'bolder';
     error = true;
   } else if (LastNameV.test(lastName.value) == false) {
     missLastName.textContent = 'Format incorrect';
-    missLastName.style.color = 'orange';
-    missLastName.style.fontWeight = 'bold';
+    missLastName.style.color = 'red';
+    missLastName.style.fontWeight = 'bolder';
     error = true;
   }
   if (address.validity.valueMissing) {
     missAddress.textContent = 'Veuillez renseigner votre adresse';
-    missAddress.style.color = 'red';
+    missAddress.style.color = '#f0a30a';
+    missAddress.style.fontWeight = 'bolder';
     error = true;
   } else if (addressV.test(address.value) == false) {
     missAddress.textContent = 'Format incorrect';
-    missAddress.style.color = 'orange';
-    missAddress.style.fontWeight = 'bold';
+    missAddress.style.color = '#f0a30a';
+    missAddress.style.fontWeight = 'bolder';
     error = true;
   }
   if (city.validity.valueMissing) {
     missCity.textContent = 'Veuillez renseigner votre ville';
-    missCity.style.color = 'red';
+    missCity.style.color = '#f0a30a';
+    missCity.style.fontWeight = 'bolder';
     error = true;
   } else if (cityV.test(city.value) == false) {
     missCity.textContent = 'Format incorrect';
-    missCity.style.color = 'orange';
-    missCity.style.fontWeight = 'bold';
+    missCity.style.color = 'red';
+    missCity.style.fontWeight = 'bolder';
     error = true;
   }
   if (email.validity.valueMissing) {
     missEmail.textContent = 'Veuillez renseigner votre email';
-    missEmail.style.color = 'red';
+    missEmail.style.color = '#f0a30a';
+    missEmail.style.fontWeight = 'bolder';
     error = true;
   } else if (emailV.test(email.value) == false) {
     missEmail.textContent = 'Format incorrect';
-    missEmail.style.color = 'orange';
-    missEmail.style.fontWeight = 'bold';
+    missEmail.style.color = 'red';
+    missEmail.style.fontWeight = 'bolder';
     error = true;
   }
 
@@ -143,14 +158,15 @@ function f_valide() {
 function sendOrder() {
   let order = {
     contact: {
-      firstName: document.getElementById('firstName').value,
-      lastName: document.getElementById('lastName').value,
-      address: document.getElementById('address').value,
-      city: document.getElementById('city').value,
-      email: document.getElementById('email').value,
+      firstName: firstName.value,
+      lastName: lastName.value,
+      address: address.value,
+      city: city.value,
+      email: email.value,
     },
     products: arrayProducts,
   };
+
   let headers = {
     'Content-Type': 'application/json',
   };
@@ -174,9 +190,17 @@ function sendOrder() {
         if (key === 'orderId' || key === 'cartTotal') {
           continue;
         }
-        localStorage.removeItem(key);
       }
+      let firstNameValue = firstName.value;
+      let lastNameValue = lastName.value;
+      let emailValue = email.value;
+      
+      
       localStorage.setItem('orderId', data.orderId);
+      localStorage.setItem('firstName', firstNameValue);
+      localStorage.setItem('lastName', lastNameValue);
+      localStorage.setItem('email', emailValue);
+
       document.location.href = '/HTML/confirmation.html';
     });
 }

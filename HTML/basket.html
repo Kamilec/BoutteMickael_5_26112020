@@ -34,14 +34,16 @@
     <header>
         <div class="header_navbar">
             <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-                <a class="navbar-brand" href="/index.html"><span><i class="fas fa-camera-retro"></i></span> ORINOCAMS</a>
+                <a class="navbar-brand" href="/index.html"><span><i class="fas fa-camera-retro"></i></span>
+                    ORINOCAMS</a>
                 <div class="navbar_icons">
                     <ul class="navbar-nav nav mr-auto">
                         <li class="nav-item ">
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="/index.html">
-                                <i class="fas fa-arrow-alt-circle-left"></i>
+                                <i class="fas fa-backward"></i>
+
                         </li>
                         <a class="nav-link" href="/HTML/basket.html">
                             <i class="fas fa-shopping-basket"></i>
@@ -63,35 +65,58 @@
 
         <div class="container">
             <fieldset class="confirmation">
-                <legend> Bon de commmande </legend>
+                <legend></legend>
                 <form id="formulaire">
-                    <p><label for="firstName">Nom <span class="obligatoire">* :
-                                <input type="text" required="required" id="firstName" name="firstName" placeholder="Nom" /></span></label>
+                    <p><label for="firstName">Prénom <span class="obligatoire">* :
+                                <input type="text" required="required" id="firstName" name="firstName"
+                                    placeholder="Prénom" /></span></label>
                     </p>
                     <span id="missFirstName"></span><br>
 
-                    <p><label for="lastName">Prénom <span class="obligatoire">* :
-                                <input type="text" required="required" id="lastName" name="lastName"  placeholder="Prénom" /></span></label>
+                    <p><label for="lastName">Nom <span class="obligatoire">* :
+                                <input type="text" required="required" id="lastName" name="lastName"
+                                    placeholder="Nom" /></span></label>
                     </p>
                     <span id="missLastName"></span><br>
 
                     <p><label for="address">Adresse <span class="obligatoire">* :
-                                <input type="text" required="required" id="address" name="address"  placeholder="ex : 31 rue du cerisier"/></span> </label>
+                                <input type="text" required="required" id="address" name="address"
+                                    placeholder="ex : 31 rue du cerisier" /></span> </label>
                     </p>
                     <span id="missAddress"></span><br>
 
                     <p><label for="city">Ville <span class="obligatoire">* :
-                                <input type="text" required="required" id="city" name="city"  placeholder="ex : Lyon" /></span></label></p>
+                                <input type="text" required="required" id="city" name="city"
+                                    placeholder="ex : Lyon" /></span></label></p>
                     <span id="missCity"></span><br>
 
                     <p><label for="email">Email <span class="obligatoire">* :
-                                <input type="email" required="required" id="email" name="email"  placeholder="xxx@mail.fr"/></span></label></p>
+                                <input type="email" required="required" id="email" name="email"
+                                    placeholder="xxx@mail.fr" /></span></label></p>
                     <span id="missEmail"></span><br>
 
                     <input type="submit" id="btn" value="Confirmation" />
-            </fieldset>
-            </form>
 
+                    <form>
+                        <div class="group_payment">
+                            <div class="choice_payment">
+                                <div>
+                                    <input type="radio" id="choice1" name="payment" value="paypal">
+                                    <label for="choice1"><i class="fab fa-paypal payment-method"></i></label>
+                                    <span id="missChoice1"></span>
+
+
+                                    <input type="radio" id="choice2" name="payment" value="visa">
+                                    <label for="choice2"><i class="fab fa-cc-visa payment-method"></i></label>
+                                    <span id="missChoice2"></span>
+
+                                    <input type="radio" id="choice3" name="payment" value="Apple pay">
+                                    <label for="choice3"><i class="fab fa-cc-apple-pay payment-method"></i></label>
+                                    <span id="missChoice3"></span>
+                                </div>
+                            </div>
+                    </form>
+            </fieldset>
         </div>
     </main>
 
@@ -127,7 +152,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
+    <script src="/bootstrap-4.5.3-dist/js/bootstrap.js"></script>
     <script src="/JS/basket.js"></script>
     <script src="/JS/totalBasket.js"></script>
 </body>

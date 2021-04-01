@@ -153,13 +153,14 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #d35400;
   text-decoration: none;
   background-color: transparent;
+  font-weight: 700;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #f1c40f;
   text-decoration: underline;
 }
 
@@ -259,6 +260,8 @@ select {
 
 select {
   word-wrap: normal;
+  color: #d35400;
+  font-weight: bold;
 }
 
 button,
@@ -273,7 +276,9 @@ button:not(:disabled),
 [type="reset"]:not(:disabled),
 [type="submit"]:not(:disabled) {
   cursor: pointer;
-  margin-bottom: 5px;
+  color: #d35400;
+  font-weight: bold;
+  width: 101%;
 }
 
 button::-moz-focus-inner,
@@ -4662,20 +4667,21 @@ input[type="button"].btn-block {
 }
 
 .navbar-dark .navbar-brand {
-  color: #fff;
   font-size: 2rem;
+  opacity: 0.6;
 }
 
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
-  color: #fff;
+  color: #f1c40f;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  opacity: 0.6;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
-  color: rgba(255, 255, 255, 0.75);
+  color: black;
+  opacity: 0.6;
 }
 
 .navbar-dark .navbar-nav .nav-link.disabled {
@@ -6773,10 +6779,6 @@ a.bg-light:hover, a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
   background-color: #dae0e5 !important;
-}
-
-.bg-dark {
-  background-color: #343a40 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
