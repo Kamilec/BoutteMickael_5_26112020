@@ -45,10 +45,6 @@ const renderCam = (productData) => {
     </div>`;
 };
 
-function upDateQte () {
-  let qte = localStorage.length;
-  document.getElementById('shop').innerHTML = qte;
-};
 
 // Ajoute le produit au panier
 const addToBasket = (basket, productData) => {

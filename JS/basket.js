@@ -2,6 +2,7 @@ const cartTotal = document.getElementById('total-price'); //Récupère le h3 pou
 const form = document.querySelector('form'); // Récupère le formulaire
 const parentsection = document.getElementById('basket');
 let arrayProducts = [];
+let finalPrice = 0;
 
 for (let i = 0; i < localStorage.length; i++) {
   const key = localStorage.key(i);
@@ -49,17 +50,14 @@ for (let i = 0; i < localStorage.length; i++) {
   });
 }
 
-let totalPrice = () => {
-  let allPrice = document.getElementsByClassName('price-total');
-  let price = 0;
+function totalPrice() {
+   let allPrice = document.getElementsByClassName('price-total');
   for (let element of allPrice) {
-    price += parseInt(element.innerHTML);
+    finalPrice += parseInt(element.innerHTML);
   }
-  localStorage.setItem('finalPrice', price + '€');
-  document.getElementById('total-price').innerHTML = price + '€';
+  document.getElementById('total-price').innerHTML = finalPrice + '€';
 };
 totalPrice();
-
 
 
 let btnConfirm = document.getElementById('btn');
@@ -195,7 +193,7 @@ function sendOrder() {
       let lastNameValue = lastName.value;
       let emailValue = email.value;
       
-      
+      localStorage.setItem('finalPrice', finalPrice + '€');
       localStorage.setItem('orderId', data.orderId);
       localStorage.setItem('firstName', firstNameValue);
       localStorage.setItem('lastName', lastNameValue);
