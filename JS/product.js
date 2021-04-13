@@ -14,7 +14,6 @@ const oneCamera = async () => {
   addToBasket(article, data);
 };
 
-
 // Récupère une caméra
 const getOneCam = async (productUrl, productId) => {
   const response = await fetch(productUrl + productId);
@@ -36,7 +35,9 @@ const renderCam = (productData) => {
     <div class="product-information">
         <img src="${productData.imageUrl}" alt="${productData.name}">
         <div class="product-info">
-            <h2 class="name-price">${productData.name} - ${productData.price / 100}€</h2>
+            <h2 class="name-price">${productData.name} - ${
+    productData.price / 100
+  }€</h2>
         </div>
         <div class="product-lenses">${selector.outerHTML}</div>
         <div class="info"> 
@@ -44,7 +45,6 @@ const renderCam = (productData) => {
         </div>
     </div>`;
 };
-
 
 // Ajoute le produit au panier
 const addToBasket = (basket, productData) => {
@@ -65,7 +65,7 @@ const addToBasket = (basket, productData) => {
     imageUrl: productData.imageUrl,
     qte: 1,
   };
-  
+
   // Envoie valeur à localStorage après un clique
   btn.addEventListener('click', () => {
     let verifItem = localStorage.getItem(productData.name);

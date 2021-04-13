@@ -12,7 +12,7 @@ for (let i = 0; i < localStorage.length; i++) {
   let product = JSON.parse(localStorage.getItem(key));
   let article = document.createElement('article');
   arrayProducts.push(product.id);
-  
+
   article.innerHTML = `
     <div class="product-information product-row">
             <img src="${product.imageUrl}">
@@ -51,14 +51,13 @@ for (let i = 0; i < localStorage.length; i++) {
 }
 
 function totalPrice() {
-   let allPrice = document.getElementsByClassName('price-total');
+  let allPrice = document.getElementsByClassName('price-total');
   for (let element of allPrice) {
     finalPrice += parseInt(element.innerHTML);
   }
   document.getElementById('total-price').innerHTML = finalPrice + '€';
-};
+}
 totalPrice();
-
 
 let btnConfirm = document.getElementById('btn');
 let firstName = document.getElementById('firstName');
@@ -192,7 +191,7 @@ function sendOrder() {
       let firstNameValue = firstName.value;
       let lastNameValue = lastName.value;
       let emailValue = email.value;
-      
+
       localStorage.setItem('finalPrice', finalPrice + '€');
       localStorage.setItem('orderId', data.orderId);
       localStorage.setItem('firstName', firstNameValue);
