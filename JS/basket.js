@@ -88,68 +88,34 @@ btnConfirm.addEventListener('click', function (e) {
   sendOrder();
 });
 
-function f_valide() {
-  let error = false;
-  if (firstName.validity.valueMissing) {
-    missFirstName.textContent = 'Veuillez renseigner votre prénom';
-    missFirstName.style.color = '#f0a30a';
-    missFirstName.style.fontWeight = 'bolder';
+function validateInput(input, inputV, errorTag, message) {
+  error = false;
+  if (input.validity.valueMissing) {
+    errorTag.textContent = message;
+    errorTag.style.color = '#f0a30a';
+    errorTag.style.fontWeight = 'bolder';
     error = true;
-  } else if (firstNameV.test(firstName.value) == false) {
-    missFirstName.textContent = 'Format incorrect';
-    missFirstName.style.color = 'red';
-    missFirstName.style.fontWeight = 'bolder';
-    error = true;
-  }
-  if (lastName.validity.valueMissing) {
-    missLastName.textContent = 'Veuillez renseigner votre nom';
-    missLastName.style.color = '#f0a30a';
-    missLastName.style.fontWeight = 'bolder';
-    error = true;
-  } else if (LastNameV.test(lastName.value) == false) {
-    missLastName.textContent = 'Format incorrect';
-    missLastName.style.color = 'red';
-    missLastName.style.fontWeight = 'bolder';
+  } else if (inputV.test(input.value) == false) {
+    errorTag.textContent = 'Format incorrect';
+    errorTag.style.color = 'red';
+    errorTag.style.fontWeight = 'bolder';
     error = true;
   }
-  if (address.validity.valueMissing) {
-    missAddress.textContent = 'Veuillez renseigner votre adresse';
-    missAddress.style.color = '#f0a30a';
-    missAddress.style.fontWeight = 'bolder';
-    error = true;
-  } else if (addressV.test(address.value) == false) {
-    missAddress.textContent = 'Format incorrect';
-    missAddress.style.color = '#f0a30a';
-    missAddress.style.fontWeight = 'bolder';
-    error = true;
-  }
-  if (city.validity.valueMissing) {
-    missCity.textContent = 'Veuillez renseigner votre ville';
-    missCity.style.color = '#f0a30a';
-    missCity.style.fontWeight = 'bolder';
-    error = true;
-  } else if (cityV.test(city.value) == false) {
-    missCity.textContent = 'Format incorrect';
-    missCity.style.color = 'red';
-    missCity.style.fontWeight = 'bolder';
-    error = true;
-  }
-  if (email.validity.valueMissing) {
-    missEmail.textContent = 'Veuillez renseigner votre email';
-    missEmail.style.color = '#f0a30a';
-    missEmail.style.fontWeight = 'bolder';
-    error = true;
-  } else if (emailV.test(email.value) == false) {
-    missEmail.textContent = 'Format incorrect';
-    missEmail.style.color = 'red';
-    missEmail.style.fontWeight = 'bolder';
-    error = true;
-  }
+  return error;
+}
 
-  if (error) {
+function f_valide() {
+  let v_firstName = validateInput(firstName,firstNameV,missFirstName,'Veuillez renseigner votre prénom');
+  let v_lastName = validateInput(lastName,LastNameV,missLastName,'Veuillez renseigner votre nom');
+  let v_adresse = validateInput(address,addressV,missAddress,'Veuillez renseigner votre adresse');
+  let v_city = validateInput(city,cityV,missCity,'Veuillez renseigner votre ville');
+  let v_email = validateInput(email,emailV,missEmail,'Votre email n\'est pas valide');
+
+  if (!v_firstName && !v_lastName && !v_email && !v_city && !v_adresse) {
+    return true;
+  } else {
     return false;
   }
-  return true;
 }
 
 function sendOrder() {
